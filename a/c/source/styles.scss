@@ -1,0 +1,239 @@
+@import "normalize";
+@import "bourbon/bourbon";
+
+// Variables
+
+$bg: #3b4652;
+$bg-card: #f7f7f5;
+$fg: saturate(tint($bg, 40%), 5%);
+$fg-card: desaturate(tint($bg, 20%), 10%);
+$hl: #dc281e;
+
+$fnt: 13px;
+$small: $fnt - 2px;
+$lh: round(1.6 * $fnt) / $fnt * 1em;
+$lhsmall: round(1.6 * $fnt) / $small * 1em;
+$fw: 400;
+
+$max-width: 18 * $lh;
+
+// Global
+
+html, body {
+	background: $bg;
+	color: shade($fg, 10%);
+	font: $fw #{$fnt}/#{$lh} "Avenir Next", AvenirNext, Avenir, "gill sans", "gill sans mt", Calibri, sans-serif;
+}
+
+body {
+	padding: 10px;
+}
+
+section, aside {
+	max-width: $max-width;
+	margin: 0 auto;
+}
+
+section {
+	padding: $lh 2.5 * $lh;
+}
+
+aside {
+	padding: 0 2.5 * $lh;
+}
+
+h1, h2, h3, strong {
+	font-weight: $fw;
+}
+
+h1, h2, header p {
+	font-size: $small/$fnt * 1em;
+	line-height: $lhsmall;
+	text-transform: uppercase;
+	letter-spacing: 2px/$small * 1em;
+	font-weight: $fw + 100;
+}
+
+h1, h2{
+	clear: both;
+	margin: 2*$lh auto $lh;
+
+	aside &{
+		margin-top: 0;
+	}
+}
+
+p, ul, header {
+	margin: 0 auto $lh;
+}
+
+header{
+	position: relative;
+	padding: $lh 0 0.5 * $lh;
+
+	&, & a {
+		color: $hl !important;
+	}
+
+	h1, p {
+		display: inline;
+	}
+
+	p {
+		margin-left: 1px/$fnt * 1em;
+		&:before{
+			margin: 0 3px/$fnt * 1em 0 -1px/$fnt * 1em;
+			content: " · ";
+		}
+	}
+
+	&:before{
+		left: -2.5 * $lh;
+	}
+
+	&:after{
+		right: -2.5 * $lh;
+	}
+}
+
+header, .front{
+	&:before, &:after{
+		position: absolute;
+		top: 1.3 * $lh;
+		display: block;
+		width: 8px/$fnt * 1em;
+		height: 8px/$fnt * 1em;
+		background: $hl;
+		content: "";
+	}
+}
+
+a{
+	&, &:link, &:visited {
+		text-decoration: none;
+		color: saturate(tint($bg, 50%), 5%);
+	}
+
+	&:focus, &:hover {
+		color: saturate(tint($bg, 75%), 25%);
+	}
+}
+
+.vcard {
+	background: $bg-card;
+	color: $fg-card;
+	margin: 0 auto;
+
+	a{
+		&, &:link, &:visited {
+			color: saturate(tint($bg, 30%), 15%);
+		}
+		&:focus, &:hover {
+			color: $hl;
+		}
+	}
+}
+
+.adr{
+	display: block;
+	margin: 0 auto $lh;
+}
+
+ul {
+	margin: 0 -1*$lh $lh;
+	padding: 0 0 1px;
+	list-style: none;
+
+	@include clearfix;
+
+	li {
+		margin: 0 3% -1px;
+		padding: 1px 2%;
+		border-top: 1px solid saturate(tint($bg, 10%), 5%);
+		border-bottom: 1px solid saturate(tint($bg, 10%), 5%);
+	}
+
+	a {
+		display: block;
+
+	}
+
+	&.simple {
+		li {
+			float: left;
+			width: 40%;
+		}
+	}
+}
+
+// Desktop
+
+@media all and (min-width: 640px) {
+
+	.card {
+		position: relative;
+		width: $max-width + 5 * $lh;
+		height: 11 * $lh;
+		margin: 0 auto;
+		-webkit-transition: height 0.5s $ease-in-back, margin-top 0.5s;
+	}
+
+	.flip {
+		-webkit-transition: height 0.65s $ease-out-back, margin-top 0.65s;
+	}
+
+	.front {
+		width: 100%;
+		height: 11 * $lh;
+		background: $bg-card url(../i/logo@2x.png) 50% 3.5*$lh no-repeat;
+		background-size: 320px 90px;
+
+		&:before, &:after {
+			top: 6.95 * $lh;
+		}
+
+		&:before{
+			left: 0;
+		}
+
+		&:after{
+			right: 0;
+		}
+	}
+
+	.csstransforms3d {
+		-webkit-perspective: 1500;
+
+		.front {
+			position: absolute;
+		}
+
+		.card {
+			overflow: visible;
+			-webkit-transform-origin: 50% 50%;
+			-webkit-transform: translate3d(0,0,0);
+			-webkit-perspective: 3000;
+
+			> * {
+				-webkit-transform-origin: 50% 50%;
+				-webkit-transition: -webkit-transform 1s ease;
+				-webkit-backface-visibility: hidden;
+				-webkit-transform: translate3d(0,0,0);
+			}
+		}
+
+		.flip .front{
+			-webkit-transform: rotateY(180deg);
+		}
+
+		.back {
+			-webkit-transform: rotateY(-180deg);
+		}
+
+		.flip .back, .front {
+			-webkit-transform: rotateY(0deg);
+		}
+	}
+
+}
+
