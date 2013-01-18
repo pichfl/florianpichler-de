@@ -1,3 +1,5 @@
+/*! florianpichler.de - made by @pichfl in 2013 */
+
 @import "normalize";
 @import "bourbon/bourbon";
 
@@ -5,7 +7,7 @@
 
 $bg: #3b4652;
 $bg-card: #f7f7f5;
-$fg: saturate(tint($bg, 40%), 5%);
+$fg: saturate(tint($bg, 50%), 5%);
 $fg-card: desaturate(tint($bg, 20%), 10%);
 $hl: #dc281e;
 
@@ -17,12 +19,24 @@ $fw: 400;
 
 $max-width: 18 * $lh;
 
+// Mixins
+
+@mixin keyframes($name) {
+	@-moz-keyframes #{$name} { @content; }
+	@-webkit-keyframes #{$name} { @content; }
+	@-o-keyframes #{$name} { @content; }
+	@-ms-keyframes #{$name} { @content; }
+	@-khtml-keyframes #{$name} { @content; }
+	@keyframes #{$name} { @content; }
+}
+
 // Global
 
 html, body {
 	background: $bg;
 	color: shade($fg, 10%);
 	font: $fw #{$fnt}/#{$lh} "Avenir Next", AvenirNext, Avenir, "gill sans", "gill sans mt", Calibri, sans-serif;
+	-webkit-tap-highlight-color: rgba(255,255,255,0.0);
 }
 
 body {
@@ -35,18 +49,25 @@ section, aside {
 }
 
 section {
-	padding: $lh 2.5 * $lh;
+	overflow: hidden;
+	padding: $lh 1.5 * $lh 2 * $lh;
+
+	&.elsewhere {
+		max-width: $max-width + 3 * $lh;
+		padding: $lh 0;
+	}
 }
 
-aside {
-	padding: 0 2.5 * $lh;
+aside{
+	margin-top: $lh;
+	padding: 0 1.5 * $lh;
 }
 
 h1, h2, h3, strong {
 	font-weight: $fw;
 }
 
-h1, h2, header p {
+h1, h2, header p, footer {
 	font-size: $small/$fnt * 1em;
 	line-height: $lhsmall;
 	text-transform: uppercase;
@@ -57,14 +78,33 @@ h1, h2, header p {
 h1, h2{
 	clear: both;
 	margin: 2*$lh auto $lh;
+}
 
+h2 {
 	aside &{
 		margin-top: 0;
 	}
+
+	.elsewhere &{
+		padding: 0 1.5 * $lhsmall;
+	}
 }
 
-p, ul, header {
+ul, header {
 	margin: 0 auto $lh;
+}
+
+p {
+	margin: 0;
+
+	& + p {
+		text-indent: $lh;
+	}
+}
+
+footer{
+	display: block;
+	margin: 0.5 * $lh 0 0;
 }
 
 header{
@@ -79,43 +119,55 @@ header{
 		display: inline;
 	}
 
-	p {
-		margin-left: 1px/$fnt * 1em;
-		&:before{
-			margin: 0 3px/$fnt * 1em 0 -1px/$fnt * 1em;
-			content: " · ";
-		}
-	}
-
 	&:before{
-		left: -2.5 * $lh;
+		left: -1.5 * $lh;
 	}
 
 	&:after{
-		right: -2.5 * $lh;
+		right: -1.5 * $lh;
 	}
 }
 
 header, .front{
+	position: relative;
+
 	&:before, &:after{
 		position: absolute;
 		top: 1.3 * $lh;
 		display: block;
-		width: 8px/$fnt * 1em;
-		height: 8px/$fnt * 1em;
+		width: 0;
+		height: 0;
 		background: $hl;
 		content: "";
+		overflow: hidden;
+		border: 4px/$fnt * 1em solid $hl;
+
+		@include transition(border-width 0.5s ease);
+
+	}
+
+	&:hover {
+		&:before {
+			border-right-color: #fff;
+		}
+		&:after{
+			border-left-color: #fff;
+		}
 	}
 }
 
 a{
 	&, &:link, &:visited {
 		text-decoration: none;
-		color: saturate(tint($bg, 50%), 5%);
+		color: saturate(tint($bg, 60%), 5%);
 	}
 
 	&:focus, &:hover {
-		color: saturate(tint($bg, 75%), 25%);
+		color: saturate(tint($bg, 85%), 25%);
+	}
+
+	&:active {
+		color: $hl;
 	}
 }
 
@@ -128,7 +180,7 @@ a{
 		&, &:link, &:visited {
 			color: saturate(tint($bg, 30%), 15%);
 		}
-		&:focus, &:hover {
+		&:focus, &:hover, &:active {
 			color: $hl;
 		}
 	}
@@ -139,47 +191,129 @@ a{
 	margin: 0 auto $lh;
 }
 
+.type{
+	@include inline-block;
+	width: 4em;
+}
+
 ul {
-	margin: 0 -1*$lh $lh;
+	position: relative;
+	margin: 0 0 $lh;
 	padding: 0 0 1px;
 	list-style: none;
 
 	@include clearfix;
 
 	li {
-		margin: 0 3% -1px;
-		padding: 1px 2%;
+		margin: 0 0 -1px;
+		padding: 1px 0;
 		border-top: 1px solid saturate(tint($bg, 10%), 5%);
 		border-bottom: 1px solid saturate(tint($bg, 10%), 5%);
 	}
 
 	a {
 		display: block;
-
+		padding: 2px/$fnt * 1em 1.5 * $lh 1px/$fnt * 1em;
 	}
 
-	&.simple {
-		li {
-			float: left;
-			width: 40%;
+}
+
+.s {
+	margin: 0 -1% 0;
+	li {
+		float: left;
+		width: 48%;
+		margin: 0 1% -1px;
+	}
+}
+
+.l {
+	a {
+		&, &:link, &:visited {
+			color: shade($fg, 10%);
+		}
+
+		strong, &:focus, &:hover {
+			color: saturate(tint($bg, 60%), 5%);
+		}
+
+		&:focus, &:hover {
+			strong{
+				color: saturate(tint($bg, 85%), 25%);
+			}
+		}
+
+		&:active, &:active strong {
+			color: $hl;
 		}
 	}
 }
 
 // Desktop
 
+@media all and (max-width: 639px) {
+	header p{
+		display: block;
+	}
+
+	ul a{
+		padding: 8px/$fnt * 1em 1.5 * $lh 7px/$fnt * 1em;
+	}
+}
+
 @media all and (min-width: 640px) {
+
+	header {
+		p {
+			&:before{
+				margin: 0 0px/$fnt * 1em 0 3px/$fnt * 1em;
+				content: " · ";
+			}
+		}
+	}
+
+	section {
+		padding: $lh 2.5 * $lh 2 * $lh;
+
+		&.elsewhere {
+			max-width: $max-width + 5 * $lh;
+
+			h2{
+				padding: 0 2.5 * $lhsmall;
+			}
+		}
+	}
+
+	aside{
+		padding: 0 2.5 * $lh;
+	}
+
+	ul {
+		a {
+			padding: 2px/$fnt * 1em 2.5 * $lh 1px/$fnt * 1em;
+		}
+	}
+
+	.adr{
+		width: 50%;
+		float: left;
+	}
 
 	.card {
 		position: relative;
 		width: $max-width + 5 * $lh;
 		height: 11 * $lh;
 		margin: 0 auto;
-		-webkit-transition: height 0.5s $ease-in-back, margin-top 0.5s;
+		@include animation(wiggle 10s infinite);
+	}
+
+	.positioned {
+		@include transition (height 0.5s $ease-in-back, margin-top 0.5s);
 	}
 
 	.flip {
-		-webkit-transition: height 0.65s $ease-out-back, margin-top 0.65s;
+		@include transition (height 0.65s $ease-out-back, margin-top 0.65s);
+		@include animation(none);
 	}
 
 	.front {
@@ -201,8 +335,21 @@ ul {
 		}
 	}
 
+	header {
+		&:before{
+			left: -2.5 * $lh;
+		}
+
+		&:after{
+			right: -2.5 * $lh;
+		}
+	}
+
+	header, .front {
+		cursor: pointer;
+	}
+
 	.csstransforms3d {
-		-webkit-perspective: 1500;
 
 		.front {
 			position: absolute;
@@ -214,11 +361,10 @@ ul {
 			-webkit-transform: translate3d(0,0,0);
 			-webkit-perspective: 3000;
 
-			> * {
+			.front, .back {
 				-webkit-transform-origin: 50% 50%;
-				-webkit-transition: -webkit-transform 1s ease;
+				@include transition (-webkit-transform 1s ease);
 				-webkit-backface-visibility: hidden;
-				-webkit-transform: translate3d(0,0,0);
 			}
 		}
 
@@ -235,5 +381,66 @@ ul {
 		}
 	}
 
+	aside {
+		position: relative;
+
+		.inner {
+			opacity: 0;
+			@include transition(opacity 0.5s 0s ease-out);
+		}
+	}
+
+	$large: 20px/$fnt * 1em;
+	$large-lh: round(1.6 * $fnt) / ($large * $fnt / 1em) * 1em;
+
+	.toggle {
+		position: absolute;
+		cursor: pointer;
+		left: 0;
+		right: $lh;
+		z-index: 1;
+		-webkit-user-select: none;
+
+		i{
+			position: relative;
+			left: 50%;
+			display: block;
+			width: $large-lh;
+			margin: 0 0 0 -1.5 * $large-lh;
+			padding: 0 $large-lh;
+			font: 700 italic #{$large}/#{$large-lh} Baskerville, "Baskerville old face", "Hoefler Text", Garamond, "Times New Roman", serif;
+
+			@include transition(left 0.5s 0.2s ease);
+		}
+
+		&:hover{
+			i {
+				color: #fff;
+			}
+		}
+	}
+
+	.show {
+		.toggle {
+			i {
+				left: $large-lh * 1.25;
+
+				@include transition(left 0.5s 0s ease);
+			}
+		}
+
+		.inner {
+			opacity: 1.0;
+			@include transition(opacity 0.5s 0.3s ease-out);
+		}
+	}
 }
 
+@include keyframes(wiggle) {
+	0%, 48%, 52%, 100% {
+		-webkit-transform: rotate(0deg);
+	}
+	50% {
+		-webkit-transform: rotate(1deg);
+	}
+}
