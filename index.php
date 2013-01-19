@@ -1,6 +1,12 @@
 <?php
 
 	date_default_timezone_set('Europe/Berlin');
+	Header("Cache-Control: must-revalidate");
+
+	$offset = 60 * 60 * 24 * 3;
+	$ExpStr = "Expires: " . gmdate("D, d M Y H:i:s", time() + $offset) . " GMT";
+	Header($ExpStr);
+
 
 ?><!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -9,7 +15,6 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 	<head>
 		<meta charset="utf-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 		<title>Florian Pichler &middot; Design &amp; Development from Germany</title>
 		<meta name="description" content="Hummingbird, Designer, Developer &amp; Wizard. Using Design, HTML, CSS &amp; Javascript to create a better web. Quality from Germany included." />
 		<meta name="viewport" content="width=device-width" />
@@ -88,12 +93,11 @@
 		</aside>
 
 		<script src="/a/s/script.combined.min.js"></script>
-
-		<!--<script>
+		<script>
 			var _gaq=[['_setAccount', 'UA-29324698-3'],['_trackPageview'],['_trackPageLoadTime']];
 			(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
 			g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
 			s.parentNode.insertBefore(g,s)}(document,'script'));
-		  </script>-->
+		  </script>
 	</body>
 </html>

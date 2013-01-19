@@ -22,11 +22,9 @@ $max-width: 18 * $lh;
 // Mixins
 
 @mixin keyframes($name) {
-	@-moz-keyframes #{$name} { @content; }
 	@-webkit-keyframes #{$name} { @content; }
+	@-moz-keyframes #{$name} { @content; }
 	@-o-keyframes #{$name} { @content; }
-	@-ms-keyframes #{$name} { @content; }
-	@-khtml-keyframes #{$name} { @content; }
 	@keyframes #{$name} { @content; }
 }
 
@@ -357,27 +355,31 @@ ul {
 
 		.card {
 			overflow: visible;
-			-webkit-transform-origin: 50% 50%;
-			-webkit-transform: translate3d(0,0,0);
-			-webkit-perspective: 3000;
+			@include transform-origin(center);
+			@include transform(translate3d(0,0,0));
+			@include prefixer(perspective, 3000, webkit moz spec);
+			@include prefixer(transform-style, preserve-3d, webkit moz spec);
 
 			.front, .back {
-				-webkit-transform-origin: 50% 50%;
-				@include transition (-webkit-transform 1s ease);
-				-webkit-backface-visibility: hidden;
+				@include transform-origin(center);
+				@include transition(-webkit-transform 1s ease);
+				@include transition(-moz-transform 1s ease);
+				@include transition(transform 1s ease);
+				@include prefixer(backface-visibility, hidden, webkit moz spec);
+				@include prefixer(transform-style, preserve-3d, webkit moz spec);
 			}
 		}
 
 		.flip .front{
-			-webkit-transform: rotateY(180deg);
+			@include transform(rotateY(180deg));
 		}
 
 		.back {
-			-webkit-transform: rotateY(-180deg);
+			@include transform(rotateY(-180deg));
 		}
 
 		.flip .back, .front {
-			-webkit-transform: rotateY(0deg);
+			@include transform(rotateY(0deg));
 		}
 	}
 
@@ -386,7 +388,7 @@ ul {
 
 		.inner {
 			opacity: 0;
-			@include transition(opacity 0.5s 0s ease-out);
+			@include transition(opacity 0.5s 0s ease);
 		}
 	}
 
@@ -406,15 +408,16 @@ ul {
 			left: 50%;
 			display: block;
 			width: $large-lh;
-			margin: 0 0 0 -1.5 * $large-lh;
+			margin: 0 0 0 -1 * $large-lh;
 			padding: 0 $large-lh;
 			font: 700 italic #{$large}/#{$large-lh} Baskerville, "Baskerville old face", "Hoefler Text", Garamond, "Times New Roman", serif;
+			text-align: center;
 
-			@include transition(left 0.5s 0.2s ease);
+			@include transition(left 0.5s 0.3s ease);
 		}
 
 		&:hover{
-			i {
+			& + .inner h2, i {
 				color: #fff;
 			}
 		}
@@ -431,16 +434,16 @@ ul {
 
 		.inner {
 			opacity: 1.0;
-			@include transition(opacity 0.5s 0.3s ease-out);
+			@include transition(opacity 0.5s 0.3s ease);
 		}
 	}
 }
 
 @include keyframes(wiggle) {
 	0%, 48%, 52%, 100% {
-		-webkit-transform: rotate(0deg);
+		@include transform(rotate(0deg));
 	}
 	50% {
-		-webkit-transform: rotate(1deg);
+		@include transform(rotate(1deg));
 	}
 }

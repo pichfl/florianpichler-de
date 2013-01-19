@@ -1,3 +1,4 @@
+/* florianpichler.de - made by @pichfl in 2013 */
 /* normalize.css v2.0.1 | MIT License | git.io/normalize */
 article,
 aside,
@@ -388,33 +389,77 @@ ul {
     position: absolute; }
   .csstransforms3d .card {
     overflow: visible;
-    -webkit-transform-origin: 50% 50%;
+    -webkit-transform-origin: center;
+    -moz-transform-origin: center;
+    -ms-transform-origin: center;
+    -o-transform-origin: center;
+    transform-origin: center;
     -webkit-transform: translate3d(0, 0, 0);
-    -webkit-perspective: 3000; }
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-perspective: 3000;
+    -moz-perspective: 3000;
+    perspective: 3000;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d; }
     .csstransforms3d .card .front, .csstransforms3d .card .back {
-      -webkit-transform-origin: 50% 50%;
+      -webkit-transform-origin: center;
+      -moz-transform-origin: center;
+      -ms-transform-origin: center;
+      -o-transform-origin: center;
+      transform-origin: center;
       -webkit-transition: -webkit-transform 1s ease;
       -moz-transition: -webkit-transform 1s ease;
       -ms-transition: -webkit-transform 1s ease;
       -o-transition: -webkit-transform 1s ease;
       transition: -webkit-transform 1s ease;
-      -webkit-backface-visibility: hidden; }
+      -webkit-transition: -moz-transform 1s ease;
+      -moz-transition: -moz-transform 1s ease;
+      -ms-transition: -moz-transform 1s ease;
+      -o-transition: -moz-transform 1s ease;
+      transition: -moz-transform 1s ease;
+      -webkit-transition: transform 1s ease;
+      -moz-transition: transform 1s ease;
+      -ms-transition: transform 1s ease;
+      -o-transition: transform 1s ease;
+      transition: transform 1s ease;
+      -webkit-backface-visibility: hidden;
+      -moz-backface-visibility: hidden;
+      backface-visibility: hidden;
+      -webkit-transform-style: preserve-3d;
+      -moz-transform-style: preserve-3d;
+      transform-style: preserve-3d; }
   .csstransforms3d .flip .front {
-    -webkit-transform: rotateY(180deg); }
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg); }
   .csstransforms3d .back {
-    -webkit-transform: rotateY(-180deg); }
+    -webkit-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+    -o-transform: rotateY(-180deg);
+    transform: rotateY(-180deg); }
   .csstransforms3d .flip .back, .csstransforms3d .front {
-    -webkit-transform: rotateY(0deg); }
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    -o-transform: rotateY(0deg);
+    transform: rotateY(0deg); }
 
   aside {
     position: relative; }
     aside .inner {
       opacity: 0;
-      -webkit-transition: opacity 0.5s 0s ease-out;
-      -moz-transition: opacity 0.5s 0s ease-out;
-      -ms-transition: opacity 0.5s 0s ease-out;
-      -o-transition: opacity 0.5s 0s ease-out;
-      transition: opacity 0.5s 0s ease-out; }
+      -webkit-transition: opacity 0.5s 0s ease;
+      -moz-transition: opacity 0.5s 0s ease;
+      -ms-transition: opacity 0.5s 0s ease;
+      -o-transition: opacity 0.5s 0s ease;
+      transition: opacity 0.5s 0s ease; }
 
   .toggle {
     position: absolute;
@@ -428,15 +473,16 @@ ul {
       left: 50%;
       display: block;
       width: 1.05em;
-      margin: 0 0 0 -1.575em;
+      margin: 0 0 0 -1.05em;
       padding: 0 1.05em;
       font: 700 italic 1.53846em/1.05em Baskerville, "Baskerville old face", "Hoefler Text", Garamond, "Times New Roman", serif;
-      -webkit-transition: left 0.5s 0.2s ease;
-      -moz-transition: left 0.5s 0.2s ease;
-      -ms-transition: left 0.5s 0.2s ease;
-      -o-transition: left 0.5s 0.2s ease;
-      transition: left 0.5s 0.2s ease; }
-    .toggle:hover i {
+      text-align: center;
+      -webkit-transition: left 0.5s 0.3s ease;
+      -moz-transition: left 0.5s 0.3s ease;
+      -ms-transition: left 0.5s 0.3s ease;
+      -o-transition: left 0.5s 0.3s ease;
+      transition: left 0.5s 0.3s ease; }
+    .toggle:hover + .inner h2, .toggle:hover i {
       color: #fff; }
 
   .show .toggle i {
@@ -448,49 +494,67 @@ ul {
     transition: left 0.5s 0s ease; }
   .show .inner {
     opacity: 1.0;
-    -webkit-transition: opacity 0.5s 0.3s ease-out;
-    -moz-transition: opacity 0.5s 0.3s ease-out;
-    -ms-transition: opacity 0.5s 0.3s ease-out;
-    -o-transition: opacity 0.5s 0.3s ease-out;
-    transition: opacity 0.5s 0.3s ease-out; } }
-@-moz-keyframes wiggle {
-  0%, 48%, 52%, 100% {
-    -webkit-transform: rotate(0deg); }
-
-  50% {
-    -webkit-transform: rotate(1deg); } }
-
+    -webkit-transition: opacity 0.5s 0.3s ease;
+    -moz-transition: opacity 0.5s 0.3s ease;
+    -ms-transition: opacity 0.5s 0.3s ease;
+    -o-transition: opacity 0.5s 0.3s ease;
+    transition: opacity 0.5s 0.3s ease; } }
 @-webkit-keyframes wiggle {
   0%, 48%, 52%, 100% {
-    -webkit-transform: rotate(0deg); }
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg); }
 
   50% {
-    -webkit-transform: rotate(1deg); } }
+    -webkit-transform: rotate(1deg);
+    -moz-transform: rotate(1deg);
+    -ms-transform: rotate(1deg);
+    -o-transform: rotate(1deg);
+    transform: rotate(1deg); } }
+
+@-moz-keyframes wiggle {
+  0%, 48%, 52%, 100% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg); }
+
+  50% {
+    -webkit-transform: rotate(1deg);
+    -moz-transform: rotate(1deg);
+    -ms-transform: rotate(1deg);
+    -o-transform: rotate(1deg);
+    transform: rotate(1deg); } }
 
 @-o-keyframes wiggle {
   0%, 48%, 52%, 100% {
-    -webkit-transform: rotate(0deg); }
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg); }
 
   50% {
-    -webkit-transform: rotate(1deg); } }
-
-@-ms-keyframes wiggle {
-  0%, 48%, 52%, 100% {
-    -webkit-transform: rotate(0deg); }
-
-  50% {
-    -webkit-transform: rotate(1deg); } }
-
-@-khtml-keyframes wiggle {
-  0%, 48%, 52%, 100% {
-    -webkit-transform: rotate(0deg); }
-
-  50% {
-    -webkit-transform: rotate(1deg); } }
+    -webkit-transform: rotate(1deg);
+    -moz-transform: rotate(1deg);
+    -ms-transform: rotate(1deg);
+    -o-transform: rotate(1deg);
+    transform: rotate(1deg); } }
 
 @keyframes wiggle {
   0%, 48%, 52%, 100% {
-    -webkit-transform: rotate(0deg); }
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg); }
 
   50% {
-    -webkit-transform: rotate(1deg); } }
+    -webkit-transform: rotate(1deg);
+    -moz-transform: rotate(1deg);
+    -ms-transform: rotate(1deg);
+    -o-transform: rotate(1deg);
+    transform: rotate(1deg); } }
