@@ -349,18 +349,15 @@ ul {
 
 	.csstransforms3d {
 
-		.front {
-			position: absolute;
-		}
-
 		.card {
-			overflow: visible;
 			@include transform-origin(center);
 			@include transform(translate3d(0,0,0));
 			@include prefixer(perspective, 3000, webkit moz spec);
 			@include prefixer(transform-style, preserve-3d, webkit moz spec);
 
 			.front, .back {
+				position: absolute;
+				overflow: hidden;
 				@include transform-origin(center);
 				@include transition(-webkit-transform 1s ease);
 				@include transition(-moz-transform 1s ease);
@@ -379,7 +376,7 @@ ul {
 		}
 
 		.flip .back, .front {
-			@include transform(rotateY(0deg));
+			 @include transform(rotateY(0deg));
 		}
 	}
 

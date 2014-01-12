@@ -24,7 +24,12 @@
 	}
 
 	function resize() {
-		var h = ((card.hasClass('flip'))?cardBack:cardFront).height();
+		var h = cardFront.height();
+
+		if (card.hasClass('flip')) {
+			h = cardBack.height();
+		}
+
 		card.css({
 			'height': h
 			, 'margin-top': Math.round(($.viewport().height - h) * 0.2)

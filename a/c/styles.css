@@ -385,10 +385,7 @@ ul {
   header, .front {
     cursor: pointer; }
 
-  .csstransforms3d .front {
-    position: absolute; }
   .csstransforms3d .card {
-    overflow: visible;
     -webkit-transform-origin: center;
     -moz-transform-origin: center;
     -ms-transform-origin: center;
@@ -406,6 +403,8 @@ ul {
     -moz-transform-style: preserve-3d;
     transform-style: preserve-3d; }
     .csstransforms3d .card .front, .csstransforms3d .card .back {
+      position: absolute;
+      overflow: hidden;
       -webkit-transform-origin: center;
       -moz-transform-origin: center;
       -ms-transform-origin: center;
