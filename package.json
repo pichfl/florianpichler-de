@@ -1,0 +1,21 @@
+{
+  "name": "florianpichler-de",
+  "version": "5.0.0",
+  "description": "A virtual business card",
+  "main": "gulpfile.js",
+  "repository": "git@github.com:pichfl/florianpichler-de.git",
+  "author": "Florian Pichler <fp@ylk.gd>",
+  "license": "None",
+  "dependencies": {
+    "autoprefixer": "^6.6.1",
+    "browser-sync": "^2.18.6",
+    "css-mqpacker": "^5.0.1",
+    "cssnano": "^3.10.0",
+    "del": "^2.2.2",
+    "gulp": "gulpjs/gulp#4.0",
+    "gulp-postcss": "^6.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.3.0"
+  }
+}
