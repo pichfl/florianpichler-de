@@ -1,0 +1,63 @@
+header {
+	img {
+		display: none;
+	}
+
+	p {
+		@include h2;
+		color: $fg-card-darker;
+
+		span {
+			display: block;
+		}
+	}
+
+	a {
+		text-decoration: none;
+	}
+
+	+ * {
+		margin-top: 3rem;
+	}
+}
+
+h1 {
+	@include h1;
+}
+
+h2 {
+	@include h2;
+
+	margin: 3rem 0 1rem;
+	color: $fg-lightest;
+}
+
+h3 {
+	color: $fg-lighter;
+}
+
+.type {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+}
+
+.adr {
+	~ * {
+		margin-top: 1rem;
+	}
+}
+
+aside,
+section {
+	padding: 0 3rem;
+}
+
+.card {
+	padding: 3rem;
+	background: $bg-card;
+	color: $fg-card;
+}

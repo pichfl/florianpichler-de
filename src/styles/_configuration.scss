@@ -1,0 +1,26 @@
+$bg: #33455a;
+$bg-darker: #2f3e51;
+$bg-darkest: #273442;
+$bg-card: #fcfbfa;
+
+$fg: #8394a8;
+$fg-lighter: #aab8c7;
+$fg-lightest: #edf2f8;
+$fg-card: #72706f;
+$fg-card-darker: #44372f;
+
+$hl: #dc281e;
+
+@mixin h1 {
+	font-size: 1.5rem;
+	line-height: 2rem;
+	color: $hl;
+}
+
+@mixin h2 {
+	font-size: 1.2rem;
+	font-weight: 500;
+	letter-spacing: 0.1rem;
+	line-height: 2rem;
+	text-transform: uppercase;
+}
