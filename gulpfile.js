@@ -26,7 +26,7 @@ task('styles', () =>
 		.pipe(
 			postcss([
 				autoprefixer({
-					browsers: ['last 1 versions'],
+					browsers: ['last 1 year'],
 					flexbox: 'no-2009',
 				}),
 				mqpacker({
@@ -46,13 +46,13 @@ task('scripts', async () => {
 	const bundle = await rollup.rollup({
 		input: 'src/scripts/main.js',
 		plugins: [],
-		banner: '/*! florianpichler.de */',
 	});
 
 	await bundle.write({
 		file: 'dist/main.js',
 		format: 'iife',
 		sourcemap: true,
+		banner: '/*! florianpichler.de */',
 	});
 
 	browserSync.reload();
@@ -60,14 +60,13 @@ task('scripts', async () => {
 
 task('content', () => src('src/*.{html,php}').pipe(dest('dist')));
 
-task('build', parallel('content', 'scripts', 'styles'));
-
 task('watch', () => {
 	browserSync.init({
 		ghostMode: false,
-		server: 'dist',
+		injectChanges: false,
 		notify: false,
 		open: false,
+		server: 'dist',
 	});
 
 	watch('src/*.{html,php}', series('content')).on('change', browserSync.reload);
@@ -75,4 +74,6 @@ task('watch', () => {
 	watch('src/scripts/**/*.js', series('scripts'));
 });
 
-task('default', series('clean', 'build', 'watch'));
+// TODO: Create build task that runs critical
+
+task('default', series('clean', parallel('content', 'scripts', 'styles'), 'watch'));
