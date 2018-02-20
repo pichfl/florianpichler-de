@@ -29,63 +29,8 @@ body {
 	padding: 1.5rem;
 	font-size: 1.4rem;
 	line-height: 2rem;
-	transform-origin: 50% 50%;
-	perspective-origin: 50% 55%;
-	perspective: 80rem;
 	background-repeat: no-repeat;
 	background: $bg-darkest;
-}
-
-.stripes {
-	z-index: 0;
-	pointer-events: none;
-
-	&,
-	i {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		overflow: hidden;
-	}
-}
-
-$soften: 0.12rem;
-$line-hl: 0.7rem;
-$line-darkest: 11rem;
-$line-darker: 5.2rem;
-
-.stripe-a {
-	background-image: linear-gradient(
-		103.2deg,
-		$bg calc(50% - #{$line-darkest + $soften + $line-darker + $soften}),
-		$bg-darker calc(50% - #{$line-darkest + $soften + $line-darker}),
-		$bg-darker calc(50% - #{$line-darkest + $soften}),
-		$bg-darkest calc(50% - #{$line-darkest}),
-		$bg-darkest 50%,
-		transparent 50%
-	);
-}
-
-.stripe-b {
-	background-image: linear-gradient(
-		103.2deg,
-		transparent calc(50% - #{$soften}),
-		$hl 50%,
-		$hl calc(50% + #{$soften + $line-hl}),
-		$bg calc(50% + #{$soften + $line-hl + $soften})
-	);
-}
-
-.flipped {
-	.stripe-a {
-		transform: translateX(-30rem);
-	}
-
-	.stripe-b {
-		transform: translateX(42rem);
-	}
 }
 
 a {
@@ -99,4 +44,9 @@ a {
 	&:hover {
 		text-decoration: underline;
 	}
+}
+
+ul,
+li {
+	list-style: none;
 }

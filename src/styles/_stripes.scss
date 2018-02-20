@@ -1,0 +1,89 @@
+.stripes,
+[class^='stripe-'] {
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	transform-style: preserve-3d;
+}
+
+.stripes {
+	position: fixed;
+	z-index: 0;
+	min-height: 100%;
+}
+
+[class^='stripe-'] {
+	position: absolute;
+	// transition: transform 0.5s ease-out;
+}
+
+$offset: 7%;
+$stripe-a: 16.7rem;
+$stripe-b: 11.3rem;
+
+$open-left: 40rem;
+$open-right: 30rem;
+
+$duration: 1s;
+
+$duration-a-out: $duration;
+$duration-b-out: $duration * 1.1;
+$duration-c-out: $duration;
+$duration-d-out: $duration;
+
+$duration-a-in: $duration;
+$duration-b-in: $duration * 1.1;
+$duration-c-in: $duration;
+$duration-d-in: $duration;
+
+.stripe-a {
+	z-index: 1;
+	transform: translateZ(80rem) translateX(calc(#{$offset} - #{$stripe-a}));
+	background-image: linear-gradient(103.2deg, $bg 50.1%, transparent 50%);
+}
+
+.stripe-b {
+	z-index: 0;
+	transform: translateX(calc(#{$offset} - #{$stripe-b}));
+	background-image: linear-gradient(103.2deg, $bg-darker 50.1%, transparent 50%);
+}
+
+.stripe-c {
+	z-index: 0;
+	transform: translateX(calc(#{$offset}));
+	background-image: linear-gradient(103.2deg, transparent 50%, $hl 50%);
+}
+
+.stripe-d {
+	z-index: 1;
+	transform: translateX(calc(#{$offset} + 0.8rem));
+	background-image: linear-gradient(103.2deg, transparent 50%, $bg 50%);
+}
+
+.flipped {
+	.stripes {
+		pointer-events: none;
+	}
+
+	.stripe-a {
+		transform: translateX(calc(#{$offset} - #{$stripe-a + $open-left}));
+		animation: stripe-a-out $duration-a-out ease-in-out;
+	}
+
+	.stripe-b {
+		transform: translateX(calc(#{$offset} - #{$stripe-b + $open-left}));
+		animation: stripe-b-out $duration-b-out ease-in-out;
+	}
+
+	.stripe-c {
+		transform: translateX(calc(#{$offset} + #{$open-right}));
+		animation: stripe-c-out $duration-c-out ease-in-out;
+	}
+
+	.stripe-d {
+		transform: translateX(calc(#{$offset} + 0.8rem + #{$open-right}));
+		animation: stripe-d-out $duration-d-out ease-in-out;
+	}
+}
