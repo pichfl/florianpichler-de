@@ -16,15 +16,15 @@
 
 [class^='stripe-'] {
 	position: absolute;
-	// transition: transform 0.5s ease-out;
+	transition: transform 0.5s ease-out;
 }
 
 $offset: 7%;
 $stripe-a: 16.7rem;
 $stripe-b: 11.3rem;
 
-$open-left: 40rem;
-$open-right: 30rem;
+$open-left: -30%;
+$open-right: 21%;
 
 $duration: 1s;
 
@@ -42,6 +42,7 @@ $duration-d-in: $duration;
 	z-index: 1;
 	transform: translateZ(80rem) translateX(calc(#{$offset} - #{$stripe-a}));
 	background-image: linear-gradient(103.2deg, $bg 50.1%, transparent 50%);
+	transition-delay: 0.1s;
 }
 
 .stripe-b {
@@ -54,12 +55,14 @@ $duration-d-in: $duration;
 	z-index: 0;
 	transform: translateX(calc(#{$offset}));
 	background-image: linear-gradient(103.2deg, transparent 50%, $hl 50%);
+	transition-delay: 0;
 }
 
 .stripe-d {
 	z-index: 1;
 	transform: translateX(calc(#{$offset} + 0.8rem));
 	background-image: linear-gradient(103.2deg, transparent 50%, $bg 50%);
+	transition-delay: 0.01s;
 }
 
 .flipped {
@@ -68,22 +71,22 @@ $duration-d-in: $duration;
 	}
 
 	.stripe-a {
-		transform: translateX(calc(#{$offset} - #{$stripe-a + $open-left}));
-		animation: stripe-a-out $duration-a-out ease-in-out;
+		transform: translateX(calc(#{$offset} - #{$stripe-a} + #{$open-left}));
+		transition-delay: 0;
 	}
 
 	.stripe-b {
-		transform: translateX(calc(#{$offset} - #{$stripe-b + $open-left}));
-		animation: stripe-b-out $duration-b-out ease-in-out;
+		transform: translateX(calc(#{$offset} - #{$stripe-b} + #{$open-left}));
+		transition-delay: 0.05s;
 	}
 
 	.stripe-c {
 		transform: translateX(calc(#{$offset} + #{$open-right}));
-		animation: stripe-c-out $duration-c-out ease-in-out;
+		transition-delay: 0.01s;
 	}
 
 	.stripe-d {
 		transform: translateX(calc(#{$offset} + 0.8rem + #{$open-right}));
-		animation: stripe-d-out $duration-d-out ease-in-out;
+		transition-delay: 0;
 	}
 }

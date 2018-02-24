@@ -1,73 +1,3 @@
-// Background Stripes
-
-@keyframes stripe-a-out {
-	0% {
-		transform: translateX(calc(#{$offset} - #{$stripe-a}));
-	}
-
-	10% {
-		transform: translateX(calc(#{$offset} - #{$stripe-a} + 5%));
-	}
-
-	88% {
-		transform: translateX(calc(#{$offset} - #{$stripe-a + $open-left} - 2%));
-	}
-
-	100% {
-		transform: translateX(calc(#{$offset} - #{$stripe-a + $open-left}));
-	}
-}
-
-@keyframes stripe-b-out {
-	0% {
-		transform: translateX(calc(#{$offset} - #{$stripe-b}));
-	}
-
-	10% {
-		transform: translateX(calc(#{$offset} - #{$stripe-b} + 7%));
-	}
-
-	93% {
-		transform: translateX(calc(#{$offset} - #{$stripe-b + $open-left} + 1%));
-	}
-
-	100% {
-		transform: translateX(calc(#{$offset} - #{$stripe-b + $open-left}));
-	}
-}
-
-@keyframes stripe-c-out {
-	0% {
-		transform: translateX(calc(#{$offset}));
-	}
-
-	10% {
-	}
-
-	88% {
-	}
-
-	100% {
-		transform: translateX(calc(#{$offset} + #{$open-right}));
-	}
-}
-
-@keyframes stripe-d-out {
-	0% {
-		transform: translateX(calc(#{$offset} + 0.8rem));
-	}
-
-	10% {
-	}
-
-	88% {
-	}
-
-	100% {
-		transform: translateX(calc(#{$offset} + 0.8rem + #{$open-right}));
-	}
-}
-
 // Card Flip
 
 @keyframes flip {
@@ -76,40 +6,52 @@
 	}
 
 	25% {
-		transform: rotateZ(-0.4deg) rotateY(45deg);
+		transform: rotateZ(-0.4deg) rotateY(-45deg);
 	}
 
 	50% {
-		transform: rotateZ(-4deg) rotateY(90deg);
+		transform: rotateZ(-4deg) rotateY(-90deg);
 	}
 
 	75% {
-		transform: rotateZ(-0.4deg) rotateY(155deg);
+		transform: rotateZ(-0.4deg) rotateY(-155deg);
 	}
 
 	100% {
-		transform: rotateZ(0) rotateY(180deg);
+		transform: rotateZ(0) rotateY(-180deg);
 	}
 }
 
 @keyframes unflip {
 	0% {
-		transform: rotateZ(0) rotateY(180deg);
+		transform: rotateZ(0) rotateY(-180deg);
 	}
 
 	25% {
-		transform: rotateZ(0.4deg) rotateY(155deg);
+		transform: rotateZ(0.4deg) rotateY(-155deg);
 	}
 
 	50% {
-		transform: rotateZ(4deg) rotateY(90deg);
+		transform: rotateZ(4deg) rotateY(-90deg);
 	}
 
 	75% {
-		transform: rotateZ(0.4deg) rotateY(45eg);
+		transform: rotateZ(0.4deg) rotateY(-45eg);
 	}
 
 	100% {
 		transform: rotateZ(0) rotateY(0deg);
+	}
+}
+
+// More
+
+@keyframes appear {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
 	}
 }
