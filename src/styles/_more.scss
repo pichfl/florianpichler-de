@@ -1,0 +1,18 @@
+.more {
+	@include media-large {
+		grid-template-columns: 15rem 1fr;
+	}
+
+	aside {
+		padding-right: 0;
+		grid-column: 1 / 2;
+		grid-row: 1 / 999;
+	}
+}
+
+.flipped {
+	.more {
+		opacity: 1;
+		animation: appear 0.5s ease-in;
+	}
+}

@@ -46,7 +46,26 @@ a {
 	}
 }
 
+p {
+	+ * {
+		margin-top: 1rem;
+	}
+}
+
 ul,
 li {
+	display: block;
 	list-style: none;
+}
+
+li {
+	+ * {
+		margin-top: 1rem;
+	}
+
+	> a {
+		display: block;
+		margin: -0.5rem 0;
+		padding: 0.5rem 0;
+	}
 }
