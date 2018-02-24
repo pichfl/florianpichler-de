@@ -44,16 +44,25 @@ scene.append(more);
 document.body.prepend(scene);
 document.body.prepend(stripes);
 
-front.addEventListener('click', () => {
+function flip() {
 	cardWrap.classList.add('flip');
 	cardWrap.classList.remove('unflip');
 	document.body.classList.add('flipped');
 	document.body.classList.remove('unflipped');
-});
+	window.location.hash = '#more';
+}
 
-back.addEventListener('click', () => {
+function unflip() {
 	cardWrap.classList.add('unflip');
 	cardWrap.classList.remove('flip');
 	document.body.classList.remove('flipped');
 	document.body.classList.add('unflipped');
-});
+	window.location.hash = '';
+}
+
+front.addEventListener('click', flip);
+back.addEventListener('click', unflip);
+
+if (window.location.hash === '#more') {
+	flip();
+}
