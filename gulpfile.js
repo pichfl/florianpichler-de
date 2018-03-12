@@ -7,7 +7,13 @@ const postcss = require('gulp-postcss');
 const rollup = require('rollup');
 const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
+const critical = require('critical').stream;
+const gutil = require('gulp-util');
+const gulpif = require('gulp-if');
 const { dest, parallel, src, series, task, watch } = require('gulp');
+const argv = require('minimist')(process.argv.slice(3));
+
+const writeSourcemaps = argv.env !== 'production';
 
 task('clean', () => del(['./dist']));
 
@@ -15,12 +21,12 @@ task('styles', () =>
 	src('src/styles/main.scss')
 		.pipe(
 			sourcemaps.init({
-				loadMaps: true,
+				loadMaps: writeSourcemaps,
 			})
 		)
 		.pipe(
 			sass({
-				sourcemap: true,
+				sourcemap: writeSourcemaps,
 			}).on('error', sass.logError)
 		)
 		.pipe(
@@ -37,7 +43,7 @@ task('styles', () =>
 				}),
 			])
 		)
-		.pipe(sourcemaps.write('.'))
+		.pipe(gulpif(writeSourcemaps, sourcemaps.write('.')))
 		.pipe(dest('dist'))
 		.pipe(browserSync.stream())
 );
@@ -51,7 +57,7 @@ task('scripts', async () => {
 	await bundle.write({
 		file: 'dist/main.js',
 		format: 'iife',
-		sourcemap: true,
+		sourcemap: writeSourcemaps,
 		banner: '/*! florianpichler.de */',
 	});
 
@@ -74,6 +80,27 @@ task('watch', () => {
 	watch('src/scripts/**/*.js', series('scripts'));
 });
 
-// TODO: Create build task that runs critical
+task('critical', () =>
+	src('dist/*.html')
+		.pipe(
+			critical({
+				base: 'dist/',
+				inline: true,
+				css: ['dist/main.css'],
+			})
+		)
+		.on('error', err => {
+			gutil.log(gutil.colors.red(err.message));
+		})
+		.pipe(dest('dist'))
+);
+
+const buildTasks = ['clean', parallel('content', 'scripts', 'styles')];
+
+if (argv.env === 'production') {
+	buildTasks.push('critical');
+}
+
+task('build', series(...buildTasks));
 
 task('default', series('clean', parallel('content', 'scripts', 'styles'), 'watch'));
