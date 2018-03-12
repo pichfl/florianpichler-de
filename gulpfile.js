@@ -20,9 +20,12 @@ task('clean', () => del(['./dist']));
 task('styles', () =>
 	src('src/styles/main.scss')
 		.pipe(
-			sourcemaps.init({
-				loadMaps: writeSourcemaps,
-			})
+			gulpif(
+				writeSourcemaps,
+				sourcemaps.init({
+					loadMaps: writeSourcemaps,
+				})
+			)
 		)
 		.pipe(
 			sass({
