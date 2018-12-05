@@ -5,17 +5,37 @@
   "main": "gulpfile.js",
   "repository": "git@github.com:pichfl/florianpichler-de.git",
   "author": "Florian Pichler <fp@ylk.gd>",
-  "license": "None",
-  "dependencies": {
-    "autoprefixer": "^6.6.1",
-    "browser-sync": "^2.18.6",
-    "css-mqpacker": "^5.0.1",
+  "scripts": {
+    "start": "gulp",
+    "build": "gulp build",
+    "production": "gulp build --env=production",
+    "fix:all": "prettier **/*.{js,scss} --write && eslint **/*.js --fix"
+  },
+  "devDependencies": {
+    "autoprefixer": "^8.1.0",
+    "babel-eslint": "^8.2.2",
+    "browser-sync": "^2.23.6",
+    "critical": "^1.1.0",
+    "css-mqpacker": "^6.0.2",
     "cssnano": "^3.10.0",
-    "del": "^2.2.2",
-    "gulp": "gulpjs/gulp#4.0",
-    "gulp-postcss": "^6.2.0",
+    "del": "^3.0.0",
+    "eslint": "^4.18.2",
+    "eslint-config-anfema": "^5.2.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-babel": "^4.1.2",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-prettier": "^2.6.0",
+    "gulp": "^4.0.0",
+    "gulp-eslint": "^4.0.2",
+    "gulp-if": "^2.0.2",
+    "gulp-postcss": "^7.0.1",
+    "gulp-prettier": "^1.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
-    "gulp-sourcemaps": "^2.3.0"
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-util": "^3.0.8",
+    "minimist": "^1.2.0",
+    "prettier": "^1.11.1",
+    "rollup": "^0.56.5"
   }
 }

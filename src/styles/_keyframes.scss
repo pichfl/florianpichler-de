@@ -1,0 +1,57 @@
+// Card Flip
+
+@keyframes flip {
+	0% {
+		transform: rotateZ(0) rotateY(0deg);
+	}
+
+	25% {
+		transform: rotateZ(-0.4deg) rotateY(-45deg);
+	}
+
+	50% {
+		transform: rotateZ(-4deg) rotateY(-90deg);
+	}
+
+	75% {
+		transform: rotateZ(-0.4deg) rotateY(-155deg);
+	}
+
+	100% {
+		transform: rotateZ(0) rotateY(-180deg);
+	}
+}
+
+@keyframes unflip {
+	0% {
+		transform: rotateZ(0) rotateY(-180deg);
+	}
+
+	25% {
+		transform: rotateZ(0.4deg) rotateY(-155deg);
+	}
+
+	50% {
+		transform: rotateZ(4deg) rotateY(-90deg);
+	}
+
+	75% {
+		transform: rotateZ(0.4deg) rotateY(-45eg);
+	}
+
+	100% {
+		transform: rotateZ(0) rotateY(0deg);
+	}
+}
+
+// More
+
+@keyframes appear {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}

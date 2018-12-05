@@ -1,3 +1,4 @@
 .DS_Store
-.sass-cache
-a/s/node_modules
+node_modules
+dist
+yarn-error.log
