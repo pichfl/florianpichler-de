@@ -35,7 +35,7 @@ task('styles', () =>
 		.pipe(
 			postcss([
 				autoprefixer({
-					browsers: ['last 1 year'],
+					browsers: ['last 1 versions', 'not ie > 0'],
 					flexbox: 'no-2009',
 				}),
 				mqpacker({

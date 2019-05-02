@@ -11,6 +11,7 @@
     "production": "gulp build --env=production",
     "fix:all": "prettier **/*.{js,scss} --write && eslint **/*.js --fix"
   },
+  "license": "UNLICENSED",
   "devDependencies": {
     "autoprefixer": "^8.1.0",
     "babel-eslint": "^8.2.2",
@@ -37,5 +38,8 @@
     "minimist": "^1.2.0",
     "prettier": "^1.11.1",
     "rollup": "^0.56.5"
+  },
+  "resolutions": {
+    "gulp-sass/node-sass": "4.11.0"
   }
 }

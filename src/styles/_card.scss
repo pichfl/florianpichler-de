@@ -157,6 +157,7 @@ section {
 .front,
 .back {
 	min-height: 23rem;
+	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
 }
 
