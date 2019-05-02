@@ -9,13 +9,15 @@
     "start": "gulp",
     "build": "gulp build",
     "format": "prettier '**/*.{scss,js}' --write && eslint --fix . --cache",
-    "now-build": "gulp build --env=production"
+    "now-build": "gulp build --env=production",
+    "deploy": "now --target production"
   },
   "license": "UNLICENSED",
   "devDependencies": {
     "autoprefixer": "^9.5.1",
     "babel-eslint": "^10.0.1",
     "browser-sync": "^2.26.5",
+    "chrome-aws-lambda": "^1.15.1",
     "critical": "^1.3.4",
     "cssnano": "^4.1.10",
     "del": "^4.1.1",
@@ -35,6 +37,7 @@
     "gulp-sourcemaps": "^2.6.5",
     "gulp-util": "^3.0.8",
     "minimist": "^1.2.0",
+    "puppeteer-core": "^1.15.0",
     "prettier": "^1.17.0",
     "rollup": "^1.10.1"
   },

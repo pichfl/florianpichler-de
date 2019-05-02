@@ -6,11 +6,12 @@ const postcss = require('gulp-postcss');
 const rollup = require('rollup');
 const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
-const critical = require('critical').stream;
 const gutil = require('gulp-util');
 const gulpif = require('gulp-if');
 const { dest, parallel, src, series, task, watch } = require('gulp');
 const argv = require('minimist')(process.argv.slice(3));
+
+const critical = require('./lib/critical');
 
 const writeSourcemaps = argv.env !== 'production';
 
