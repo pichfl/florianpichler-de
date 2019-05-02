@@ -2,7 +2,6 @@ const autoprefixer = require('autoprefixer');
 const browserSync = require('browser-sync').create();
 const cssnano = require('cssnano');
 const del = require('del');
-const mqpacker = require('css-mqpacker');
 const postcss = require('gulp-postcss');
 const rollup = require('rollup');
 const sass = require('gulp-sass');
@@ -37,9 +36,6 @@ task('styles', () =>
 				autoprefixer({
 					browsers: ['last 1 versions', 'not ie > 0'],
 					flexbox: 'no-2009',
-				}),
-				mqpacker({
-					sort: true,
 				}),
 				cssnano({
 					autoprefixer: false,
