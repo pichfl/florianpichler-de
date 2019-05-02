@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "name": "vcard",
+  "scope": "pichfl",
+  "alias": "florianpichler.de",
+  "builds": [{ "src": "package.json", "use": "@now/static-build" }]
+}

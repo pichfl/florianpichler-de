@@ -8,7 +8,8 @@
   "scripts": {
     "start": "gulp",
     "build": "gulp build",
-    "format": "prettier '**/*.{scss,js}' --write && eslint --fix . --cache"
+    "format": "prettier '**/*.{scss,js}' --write && eslint --fix . --cache",
+    "now-build": "gulp build --env=production"
   },
   "license": "UNLICENSED",
   "devDependencies": {
