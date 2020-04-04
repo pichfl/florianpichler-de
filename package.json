@@ -36,7 +36,7 @@
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-util": "^3.0.8",
-    "minimist": "^1.2.0",
+    "minimist": "^1.2.3",
     "prettier": "^1.18.2",
     "puppeteer-core": "^1.18.1",
     "rollup": "^1.16.7"
