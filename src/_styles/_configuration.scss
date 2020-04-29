@@ -16,7 +16,7 @@ $hl: #dc281e;
 @mixin h1 {
 	font-size: 1.5rem;
 	line-height: 2rem;
-	color: $hl;
+	color: var(--h1);
 }
 
 @mixin h2($font-size: 1.2rem, $line-height: 2rem) {
@@ -24,6 +24,14 @@ $hl: #dc281e;
 	font-weight: 500;
 	letter-spacing: 0.1rem;
 	line-height: $line-height;
+	text-transform: uppercase;
+}
+
+.h2 {
+	font-size: 1.2rem;
+	font-weight: 500;
+	letter-spacing: 0.1rem;
+	line-height: 2rem;
 	text-transform: uppercase;
 }
 

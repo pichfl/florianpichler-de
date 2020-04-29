@@ -1,9 +1,0 @@
-[build]
-  publish = "dist/"
-  command = "gulp build --env=production"
-
-[[redirects]]
-  from = "https://florianpichler.netlify.com/*"
-  to = " https://florianpichler.de/:splat"
-  status = "301"
-  force = true

@@ -1,0 +1,33 @@
+:root {
+	--bg: #33455a;
+	--bg-darker: #2f3e51;
+	--bg-darkest: #273442;
+	--bg-card: #fcfbfa;
+
+	--fg: #8394a8;
+	--fg-lighter: #aab8c7;
+	--fg-lightest: #edf2f8;
+	--fg-card: #72706f;
+	--fg-card-darker: #44372f;
+
+	--hl: #dc281e;
+
+	--stripe-offset: 7%;
+	--stripe-a: 16.7rem;
+	--stripe-b: 11.3rem;
+
+	--stripe-open-left: -30%;
+	--stripe-open-right: 21%;
+
+	--stripe-duration: 1s;
+
+	--stripe-duration-a-out: var(--stripe-duration);
+	--stripe-duration-b-out: calc(var(--stripe-duration) * 1.1);
+	--stripe-duration-c-out: var(--stripe-duration);
+	--stripe-duration-d-out: var(--stripe-duration);
+
+	--stripe-duration-a-in: var(--stripe-duration);
+	--stripe-duration-b-in: calc(var(--stripe-duration) * 1.1);
+	--stripe-duration-c-in: var(--stripe-duration);
+	--stripe-duration-d-in: var(--stripe-duration);
+}

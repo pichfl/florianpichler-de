@@ -1,0 +1,23 @@
+@import './config.css';
+@import './base.css';
+@import './keyframes.css';
+@import './stripes.css';
+@import './card.css';
+@import './more.css';
+
+@svg-load logo url(../assets/signature.svg);
+
+.logo {
+	max-width: 33rem;
+	min-width: 29rem;
+	margin: 0 auto;
+	max-height: 6.5rem;
+	background: svg-inline(logo) 50% 50% no-repeat;
+	background-size: 100%;
+}
+
+.logo:before {
+	display: block;
+	content: '';
+	padding-bottom: calc(6.5 / 33 * 100%);
+}

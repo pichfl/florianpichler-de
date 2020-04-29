@@ -1,19 +1,21 @@
+import '../styles/main.css';
+
 const d = document;
-const $ = query => d.querySelector(query);
-const create = el => document.createElement(el);
+const $ = (query) => d.querySelector(query);
+const h = (el) => document.createElement(el);
 
 const card = $('.card');
-const cardWrap = create('div');
-const scene = create('div');
-const front = create('button');
-const back = create('button');
+const cardWrap = h('div');
+const scene = h('div');
+const front = h('button');
+const back = h('button');
 const tagLine = $('.card header p').cloneNode(true);
-const logo = create('div');
-const stripes = create('div');
+const logo = h('div');
+const stripes = h('div');
 const more = $('.more');
 
 for (let i = 0; i < 4; i++) {
-	const stripe = create('div');
+	const stripe = h('div');
 
 	stripe.className = `stripe-${String.fromCharCode(i + 97)}`;
 

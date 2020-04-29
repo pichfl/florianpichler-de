@@ -1,3 +1,1 @@
-module.exports = {
-	extends: 'stylelint-config-anfema',
-};
+module.exports = {};

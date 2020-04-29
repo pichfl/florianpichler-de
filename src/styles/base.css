@@ -1,0 +1,78 @@
+/* Lazy reset, this is a single & self contained page after all */
+*,
+*:after,
+*:before {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font: inherit;
+	box-sizing: border-box;
+	border-radius: 0;
+}
+
+html,
+body {
+	min-height: 100vh;
+	background: var(--bg);
+	color: var(--fg);
+	font-family: 'Avenir Next', AvenirNext, Avenir, 'gill sans', 'gill sans mt',
+		Calibri, sans-serif;
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
+html {
+	font-size: calc(10 / 16 * 100%);
+}
+
+body {
+	padding: 1.5rem;
+	font-size: 1.4rem;
+	line-height: 2rem;
+	background-repeat: no-repeat;
+	background: var(--bg-darkest);
+}
+
+a,
+a:link,
+a:visited {
+	color: inherit;
+	text-decoration: none;
+}
+
+a:focus,
+a:hover {
+	text-decoration: underline;
+}
+
+p + * {
+	margin-top: 1rem;
+}
+
+ul,
+li {
+	display: block;
+	list-style: none;
+}
+
+li + * {
+	margin-top: 1rem;
+}
+
+li > a {
+	display: block;
+	margin: -0.5rem 0;
+	padding: 0.5rem 0;
+}
+
+li > a:hover {
+	text-decoration: none;
+}
+
+li > a:hover :first-child {
+	text-decoration: underline;
+	color: var(--fg-lightest);
+}
+
+li > a:hover * + * {
+	color: var(--fg-lighter);
+}

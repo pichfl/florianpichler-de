@@ -1,4 +1,4 @@
-// Card Flip
+/* Card Flip */
 
 @keyframes flip {
 	0% {
@@ -44,7 +44,7 @@
 	}
 }
 
-// More
+/* More */
 
 @keyframes appear {
 	0% {
