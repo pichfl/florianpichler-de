@@ -35,7 +35,7 @@ module.exports = {
 					{
 						loader: 'postcss-loader',
 						options: {
-							config: {
+							postcssOptions: {
 								path: path.join(__dirname, 'postcss.config.js'),
 							},
 						},
@@ -66,7 +66,9 @@ module.exports = {
 		filename: '[name].bundle.js',
 	},
 	devServer: {
-		contentBase: path.join(__dirname, 'public'),
+		static: [
+			path.join(__dirname, 'public'),
+		],
 		compress: true,
 		port: 9000,
 	},
