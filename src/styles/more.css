@@ -14,3 +14,9 @@
 	opacity: 1;
 	animation: appear 0.5s ease-in;
 }
+
+.more p a,
+.more p a:link,
+.more p a:visited {
+	color: var(--fg-lighter);
+}
