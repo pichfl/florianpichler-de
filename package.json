@@ -6,35 +6,37 @@
   "repository": "git@github.com:pichfl/florianpichler-de.git",
   "author": "Florian Pichler <fp@ylk.gd>",
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --mode=development",
     "build": "webpack --mode=production",
-    "format": "prettier '**/*.{scss,js}' --write && eslint --fix . --cache"
+    "format": "prettier '**/*.{css,md,json,yaml,yml}' --write && eslint --fix ."
   },
   "license": "UNLICENSED",
   "devDependencies": {
-    "@babel/core": "^7.14.0",
-    "@babel/preset-env": "^7.14.1",
+    "@babel/core": "^7.17.9",
+    "@babel/eslint-parser": "^7.17.0",
+    "@babel/eslint-plugin": "^7.17.7",
+    "@babel/preset-env": "^7.16.11",
     "babel-loader": "^8.2.2",
-    "critters-webpack-plugin": "^2.5.0",
-    "css-loader": "^5.2.4",
+    "critters-webpack-plugin": "^3.0.2",
+    "css-loader": "^6.7.1",
     "cssnano": "^5.0.2",
-    "eslint-config-prettier": "^8.3.0",
+    "eslint": "^8.12.0",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-babel": "^5.3.1",
     "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "file-loader": "^6.2.0",
-    "html-loader": "^2.1.2",
+    "html-loader": "^3.1.0",
     "html-webpack-plugin": "^5.3.1",
-    "mini-css-extract-plugin": "^1.6.0",
+    "mini-css-extract-plugin": "^2.6.0",
     "postcss": "^8.2.14",
     "postcss-import": "^14.0.1",
     "postcss-inline-svg": "^5.0.0",
-    "postcss-loader": "^5.2.0",
-    "postcss-preset-env": "^6.7.0",
+    "postcss-loader": "^6.2.1",
+    "postcss-preset-env": "^7.4.3",
     "prettier": "^2.2.1",
     "webpack": "^5.36.2",
     "webpack-cli": "^4.7.0",
-    "webpack-dev-server": "4.0.0-beta.0"
-  },
-  "dependencies": {}
+    "webpack-dev-server": "4.8.1"
+  }
 }

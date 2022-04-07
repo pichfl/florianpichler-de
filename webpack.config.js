@@ -66,9 +66,7 @@ module.exports = {
 		filename: '[name].bundle.js',
 	},
 	devServer: {
-		static: [
-			path.join(__dirname, 'public'),
-		],
+		static: [path.join(__dirname, 'public')],
 		compress: true,
 		port: 9000,
 	},

@@ -21,15 +21,24 @@
 
 .stripe-a {
 	z-index: 1;
-	transform: translateZ(80rem) translateX(calc(var(--stripe-offset) - var(--stripe-a)));
-	background-image: linear-gradient(103.2deg, var(--bg) 50.1%, transparent 50%);
+	transform: translateZ(80rem)
+		translateX(calc(var(--stripe-offset) - var(--stripe-a)));
+	background-image: linear-gradient(
+		103.2deg,
+		var(--bg) 50.1%,
+		transparent 50%
+	);
 	transition-delay: 0.1s;
 }
 
 .stripe-b {
 	z-index: 0;
 	transform: translateX(calc(var(--stripe-offset) - var(--stripe-b)));
-	background-image: linear-gradient(103.2deg, var(--bg-darker) 50.1%, transparent 50%);
+	background-image: linear-gradient(
+		103.2deg,
+		var(--bg-darker) 50.1%,
+		transparent 50%
+	);
 }
 
 .stripe-c {
@@ -51,21 +60,29 @@
 }
 
 .flipped .stripe-a {
-	transform: translateX(calc(var(--stripe-offset) - var(--stripe-a) + var(--stripe-open-left)));
+	transform: translateX(
+		calc(var(--stripe-offset) - var(--stripe-a) + var(--stripe-open-left))
+	);
 	transition-delay: 0;
 }
 
 .flipped .stripe-b {
-	transform: translateX(calc(var(--stripe-offset) - var(--stripe-b) + var(--stripe-open-left)));
+	transform: translateX(
+		calc(var(--stripe-offset) - var(--stripe-b) + var(--stripe-open-left))
+	);
 	transition-delay: 0.05s;
 }
 
 .flipped .stripe-c {
-	transform: translateX(calc(var(--stripe-offset) + var(--stripe-open-right)));
+	transform: translateX(
+		calc(var(--stripe-offset) + var(--stripe-open-right))
+	);
 	transition-delay: 0.01s;
 }
 
 .flipped .stripe-d {
-	transform: translateX(calc(var(--stripe-offset) + 0.8rem + var(--stripe-open-right)));
+	transform: translateX(
+		calc(var(--stripe-offset) + 0.8rem + var(--stripe-open-right))
+	);
 	transition-delay: 0;
 }
