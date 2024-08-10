@@ -1,9 +1,9 @@
-module.exports = {
+export default {
 	plugins: {
 		'postcss-inline-svg': {},
 		'postcss-import': {},
 		'postcss-preset-env': {
-			browsers: 'last 1 versions',
+			browsers: 'defaults, not dead',
 		},
 		cssnano: {},
 	},

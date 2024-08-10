@@ -1,5 +1,6 @@
 @media (min-width: 800px) {
 	.more {
+		padding-bottom: 3rem;
 		grid-template-columns: 15rem 1fr;
 	}
 }
