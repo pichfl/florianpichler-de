@@ -1,5 +1,9 @@
 import '../styles/main.css';
 
+import { inject } from "@vercel/analytics";
+
+inject({ mode: import.meta.env.PROD ? 'production' : 'development' });
+
 const d = document;
 const $ = (query) => d.querySelector(query);
 const h = (el) => document.createElement(el);
